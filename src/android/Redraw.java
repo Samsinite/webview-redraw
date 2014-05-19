@@ -1,23 +1,27 @@
 package com.samsinite.redraw;
 
-import org.apache.cordova;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.CordovaWebView;
+import org.apache.cordova.CordovaInterface;
 import org.json.JSONArray;
 
-public class SplashScreen extends CordovaPlugin {
+public class Redraw extends CordovaPlugin {
+	private CordovaWebView _webView;
+	private CordovaInterface _cordova;
 
-	@override
+	@Override
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+		_webView = webView;
 		super.initialize(cordova, webView);
 	}
 
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
 		if (action.equals("redraw")) {
-			cordova.getActivity().runOnUiThread(new Runnable() {
+			_cordova.getActivity().runOnUiThread(new Runnable() {
 				public void run() {
-					this.webView.invalidate();
+					_webView.invalidate();
 				}
 			});
 		}
