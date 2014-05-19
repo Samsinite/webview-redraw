@@ -16,7 +16,7 @@ public class SplashScreen extends CordovaPlugin {
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
 		if (action.equals("redraw")) {
 			cordova.getActivity().runOnUiThread(new Runnable() {
-                public void run() {
+				public void run() {
 					this.webView.invalidate();
 				}
 			});
