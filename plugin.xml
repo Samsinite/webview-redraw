@@ -38,7 +38,7 @@
 		</config-file>
 
 		<js-module src="www/android/redraw.js" name="Redraw">
-			<clobbers target="webview.redraw" />
+			<merges target="webview.redraw" />
 		</js-module>
 
 		<source-file src="src/android/Redraw.java" target-dir="src/com/samsinite/plugin/" />
