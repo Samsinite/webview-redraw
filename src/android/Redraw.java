@@ -6,6 +6,8 @@ import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.CordovaInterface;
 import org.json.JSONArray;
 import java.lang.Exception;
+import java.io.StringWriter;
+import java.io.PrintWriter;
 
 public class Redraw extends CordovaPlugin {
 	private CordovaWebView _webView;
@@ -30,7 +32,10 @@ public class Redraw extends CordovaPlugin {
 				});
 			}
 			catch (Exception e) {
-				callbackContext.error(org.apache.commons.lang.exception.ExceptionUtils.getStackTrace(e));
+				final StringWriter sw = new StringWriter();
+				final PrintWriter pw = new PrintWriter(sw, true);
+				e.printStackTrace(pw);
+				callbackContext.error(sw.getBuffer().toString());
 			}
 		}
 		else {
