@@ -22,6 +22,7 @@ public class Redraw extends CordovaPlugin {
 			_cordova.getActivity().runOnUiThread(new Runnable() {
 				public void run() {
 					_webView.invalidate();
+					callbackContext.success("Invalidate was called!");
 				}
 			});
 		}
@@ -29,7 +30,6 @@ public class Redraw extends CordovaPlugin {
 			return false;
 		}
 
-		callbackContext.success();
 		return true;
 	}
 
