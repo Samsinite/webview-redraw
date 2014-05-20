@@ -22,6 +22,12 @@
 		<clobbers target="webview.redraw" />
 	</js-module>
 
+	<!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+        </config-file>
+    </platform>
+
 	<!-- android -->
 	<platform name="android">
 		<config-file target="res/xml/config.xml" parent="/*">
