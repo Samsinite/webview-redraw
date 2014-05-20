@@ -23,12 +23,12 @@ public class Redraw extends CordovaPlugin {
 	public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) {
 		if (action.equals("redraw")) {
 			try {
-			_cordova.getActivity().runOnUiThread(new Runnable() {
-				public void run() {
-					_webView.invalidate();
-					callbackContext.success("Invalidate was called!");
-				}
-			});
+				_cordova.getActivity().runOnUiThread(new Runnable() {
+					public void run() {
+						_webView.invalidate();
+						callbackContext.success("Invalidate was called!");
+					}
+				});
 			}
 			catch (Exception e) {
 				callbackContext.error(ExceptionUtils.getStackTrace(e));
