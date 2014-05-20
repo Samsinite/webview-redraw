@@ -5,6 +5,6 @@ var redraw = function() {
 		/* error occured when cordova tried to call redraw */
 		console.log("Error calling redraw: ", err);
 	}, "Redraw", "redraw", []);
-}
+};
 
 module.exports = redraw;
