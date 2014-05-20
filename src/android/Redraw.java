@@ -15,8 +15,8 @@ public class Redraw extends CordovaPlugin {
 
 	@Override
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
-		_webView = webView;
-		_cordova = cordova;
+		this._webView = webView;
+		this._cordova = cordova;
 		super.initialize(cordova, webView);
 	}
 
@@ -24,9 +24,9 @@ public class Redraw extends CordovaPlugin {
 	public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) {
 		if (action.equals("redraw")) {
 			try {
-				_cordova.getActivity().runOnUiThread(new Runnable() {
+				this._cordova.getActivity().runOnUiThread(new Runnable() {
 					public void run() {
-						_webView.invalidate();
+						this._webView.invalidate();
 						callbackContext.success("Invalidate was called!");
 					}
 				});
