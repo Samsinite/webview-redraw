@@ -5,7 +5,6 @@ import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.CordovaInterface;
 import org.json.JSONArray;
-import org.apache.commons.lang.exception.ExceptionUtils;
 import java.lang.Exception;
 
 public class Redraw extends CordovaPlugin {
@@ -31,7 +30,7 @@ public class Redraw extends CordovaPlugin {
 				});
 			}
 			catch (Exception e) {
-				callbackContext.error(ExceptionUtils.getStackTrace(e));
+				callbackContext.error(org.apache.commons.lang.exception.ExceptionUtils.getStackTrace(e));
 			}
 		}
 		else {
