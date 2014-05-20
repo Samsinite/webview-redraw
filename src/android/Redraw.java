@@ -17,7 +17,7 @@ public class Redraw extends CordovaPlugin {
 	}
 
 	@Override
-	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
+	public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) {
 		if (action.equals("redraw")) {
 			_cordova.getActivity().runOnUiThread(new Runnable() {
 				public void run() {
