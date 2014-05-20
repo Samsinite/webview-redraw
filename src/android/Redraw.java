@@ -13,10 +13,11 @@ import org.apache.cordova.LOG;;
 public class Redraw extends CordovaPlugin {
 	private CordovaWebView _webView;
 	private CordovaInterface _cordova;
+	private static final String LOG_TAG = "Redraw";
 
 	@Override
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
-		LOG.d("initiaizing android Redraw plugin...");
+		LOG.d(LOG_TAG, "initiaizing android Redraw plugin...");
 		this._webView = webView;
 		this._cordova = cordova;
 		super.initialize(cordova, webView);
@@ -24,7 +25,7 @@ public class Redraw extends CordovaPlugin {
 
 	@Override
 	public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) {
-		LOG.d("executing android Redraw plugin...");
+		LOG.d(LOG_TAG, "executing android Redraw plugin...");
 
 		if (action.equals("redraw")) {
 			try {
