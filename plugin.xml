@@ -30,12 +30,12 @@
 
 	<!-- android -->
 	<platform name="android">
-		<js-module src="www/android/redraw.js" name="Redraw">
+		<js-module src="www/android/redraw.js" name="AndroidRedraw">
 			<clobbers target="webview.redraw"></clobbers>
 		</js-module>
 
 		<config-file target="res/xml/config.xml" parent="/*">
-			<feature name="Redraw">
+			<feature name="AndroidRedraw">
 				<param name="android-package" value="com.samsinite.plugin.Redraw"/>
 				<param name="onload" value="true" />
 			</feature>
