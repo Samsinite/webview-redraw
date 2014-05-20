@@ -1,4 +1,4 @@
-package com.samsinite.redraw;
+package com.samsinite.plugin;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
