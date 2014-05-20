@@ -8,18 +8,15 @@ import org.json.JSONArray;
 import java.lang.Exception;
 import java.io.StringWriter;
 import java.io.PrintWriter;
-import org.apache.cordova.LOG;;
+import org.apache.cordova.LOG;
+import java.lang.Long;
 
 public class Redraw extends CordovaPlugin {
-	private CordovaWebView _webView;
-	private CordovaInterface _cordova;
 	private static final String LOG_TAG = "Redraw";
 
 	@Override
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
 		LOG.d(LOG_TAG, "initiaizing android Redraw plugin...");
-		this._webView = webView;
-		this._cordova = cordova;
 		super.initialize(cordova, webView);
 	}
 
@@ -29,24 +26,16 @@ public class Redraw extends CordovaPlugin {
 
 		if (action.equals("redraw")) {
 			try {
-				final CordovaWebView webView = this._webView;
+				// 300ms was the sweet spot it seems, but allow it to be overridden
+				long delay = 300;
+				if(args.length() == 1) {
+				  delay = args.getLong(0);
+				}
 
-				// this._cordova.getActivity().runOnUiThread(new Runnable() {
-				// 	public void run() {
-				// 		LOG.d(LOG_TAG, "calling invalidate...");
-				// 		webView.invalidate();
-				// 		LOG.d(LOG_TAG, "invalidate was called...");
-				// 		callbackContext.success("Invalidate was called!");
-				// 	}
-				// });
-				webView.post(new Runnable() {
-					public void run() {
-						LOG.d(LOG_TAG, "calling invalidate...");
-						webView.invalidate();
-						LOG.d(LOG_TAG, "invalidate was called...");
-						callbackContext.success("Invalidate was called!");
-					}
-				});
+				LOG.d(LOG_TAG, "triggering delayed redraw at " + Long.toString(delay) + "...");
+				// Post a request for a redraw on the UI thread, with the specified delay
+				this.webView.postInvalidateDelayed(delay);
+				LOG.d(LOG_TAG, "delay scheduled...");
 			}
 			catch (Exception e) {
 				final StringWriter sw = new StringWriter();
