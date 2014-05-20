@@ -8,6 +8,7 @@ import org.json.JSONArray;
 import java.lang.Exception;
 import java.io.StringWriter;
 import java.io.PrintWriter;
+import org.apache.cordova.LOG;;
 
 public class Redraw extends CordovaPlugin {
 	private CordovaWebView _webView;
@@ -15,6 +16,7 @@ public class Redraw extends CordovaPlugin {
 
 	@Override
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+		LOG.d("initiaizing android Redraw plugin...");
 		this._webView = webView;
 		this._cordova = cordova;
 		super.initialize(cordova, webView);
@@ -22,6 +24,8 @@ public class Redraw extends CordovaPlugin {
 
 	@Override
 	public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) {
+		LOG.d("executing android Redraw plugin...");
+
 		if (action.equals("redraw")) {
 			try {
 				final CordovaWebView webView = this._webView;
