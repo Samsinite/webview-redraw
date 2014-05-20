@@ -13,6 +13,7 @@ public class Redraw extends CordovaPlugin {
 	@Override
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
 		_webView = webView;
+		_cordova = cordova;
 		super.initialize(cordova, webView);
 	}
 
